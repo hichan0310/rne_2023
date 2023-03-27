@@ -4,11 +4,8 @@ from math import pi, sin, cos
 
 size = 4
 conv_size = 2 * size + 1
-# 위 : 0번
-# 오른쪽 : 1번
-# 아래 : 2번
-# 왼쪽 : 3번
-
+different_range = pi
+movement=10
 result = []
 
 
@@ -20,7 +17,7 @@ def getline(image):
 
 def followline(image, grad, position):
     result[-1].append(position)
-    conv = np.array([list(map(lambda x: x if abs(x) <= pi / 2 else 0,
+    conv = np.array([list(map(lambda x: x if abs(x) <= different_range / 2 else 0,
                               list(map(lambda x: x if x < pi else x - 2 * pi,
                                        [(0 if x - size == 0 and y - size == 0
                                          else (
@@ -46,7 +43,6 @@ def followline(image, grad, position):
     if num == 0:
         exit()
     new_grad_difference = sum / num
-    new_grad=grad + new_grad_difference
-    new_position = (position[0] + cos(new_grad), position[1] + sin(new_grad))
+    new_grad = grad + new_grad_difference
+    new_position = (position[0] + movement * cos(new_grad), position[1] + movement * sin(new_grad))
     followline(image, new_grad, new_position)
-

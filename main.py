@@ -50,18 +50,22 @@
 
 
 
+#
+#
+# n,m,k=map(int,input().split())
+# if n-m<k-1 or m*k<n:print(-1);exit()
+# a,x,y,z=[],n,m,k
+# def f():
+#  global a,x,y,z
+#  while True:
+#   if x-z>y-1:a=list(range(x,x-z,-1))+a;x-=z;y-=1
+#   else:a=list(range(x,y-1,-1))+a;a=list(range(1,y))+a;break
+# f()
+# print(*a)
+# a,x,y,z=[],n,k,m
+# f()
+# print(*map(lambda x:n-x+1,a))
 
 
-n,m,k=map(int,input().split())
-if n-m<k-1 or m*k<n:print(-1);exit()
-a,x,y,z=[],n,m,k
-def f():
- global a,x,y,z
- while True:
-  if x-z>y-1:a=list(range(x,x-z,-1))+a;x-=z;y-=1
-  else:a=list(range(x,y-1,-1))+a;a=list(range(1,y))+a;break
-f()
-print(*a)
-a,x,y,z=[],n,k,m
-f()
-print(*map(lambda x:n-x+1,a))
+
+
